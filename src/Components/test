@@ -1,0 +1,42 @@
+import React, { useState } from 'react';
+
+function SignInForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleEmailChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function handlePasswordChange(event) {
+    setPassword(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // Call an API or perform some action to authenticate the user with the entered email and password
+    // For example, you could make an HTTP request to a server with the user's credentials
+    // If the credentials are valid, you could store an authentication token in local storage or a cookie
+    // If the credentials are invalid, you could display an error message to the user
+
+    console.log('Email:', email);
+    console.log('Password:', password);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Email:
+        <input type="email" value={email} onChange={handleEmailChange} />
+      </label>
+      <label>
+        Password:
+        <input type="password" value={password} onChange={handlePasswordChange} />
+      </label>
+      <button type="submit">Sign In</button>
+    </form>
+  );
+}
+
+export default SignInForm;
